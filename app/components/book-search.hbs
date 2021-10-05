@@ -1,0 +1,14 @@
+<form 
+    class="flex search"
+    {{on "submit" this.submitSearch}}
+>
+  <div class="searchShell">
+    <button 
+        class="searchButton" 
+        type="submit"
+    >
+      <FaIcon @icon="search" />
+    </button>
+    <Input @value={{this.searchQuery}}/>
+  </div>
+</form>
