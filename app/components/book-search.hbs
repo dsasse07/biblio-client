@@ -6,9 +6,13 @@
     <button 
         class="searchButton" 
         type="submit"
+        disabled={{this.isLoading}}
     >
       <FaIcon @icon="search" />
     </button>
-    <Input @value={{this.searchQuery}}/>
+    <Input 
+      @value={{this.search.searchQuery}}
+      placeholder="Search Books Database..."
+    />
   </div>
 </form>
