@@ -1,18 +1,4 @@
-<form 
-    class="flex search"
-    {{on "submit" this.submitSearch}}
->
-  <div class="searchShell">
-    <button 
-        class="searchButton" 
-        type="submit"
-        disabled={{this.isLoading}}
-    >
-      <FaIcon @icon="search" />
-    </button>
-    <Input 
-      @value={{this.search.searchQuery}}
-      placeholder="Search Books Database..."
-    />
-  </div>
-</form>
+<SearchBar @onSubmit={{this.submitSearch}} @isLoading={{this.search.isLoading}}>
+  <SearchBar::Button @icon="search" @isDisabled={{this.this.search.isLoading}} @type="submit"/>
+  <SearchBar::Input @value={{this.search.searchQuery}} @placeholder="Search Books Database..."/>
+</SearchBar>

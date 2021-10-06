@@ -60,7 +60,9 @@ html {
     --white-bg-color: rgb(248, 248, 248);
     --light-yellow: rgb(254, 212, 164);
     --light-gray: rgb(230, 230, 230);
+    --loader-color: rgb(214, 53, 39);
     --dark-font-color: black;
+    --search-radius: 20px;
 }
 
 .flex {
@@ -112,6 +114,7 @@ html {
     padding-bottom: 60px;
 }
 .searchShell {
+    position: relative;
     background: var(--white-bg-color);
     display: flex;
     justify-content: center;
@@ -120,7 +123,7 @@ html {
     width: 40%;
     min-width: 300px;
     height: 35%;
-    border-radius: 20px;
+    border-radius: var(--search-radius);
 }
 
 .searchButton {
@@ -137,17 +140,73 @@ html {
     background: var(--light-gray)
 }
 
-
-.search input {
+.searchInput {
+    width: auto;
     background: none;
     border: none;
     outline: none;
     flex: 1 0 0;
 }
-.search > .ember-view {
-    width: auto;
+
+.searchLoader {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: var(--search-radius);
+    background-color: rgb(248, 248, 248, 0.9);
 }
 
+.loaderBackdrop {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.loaderForeground {
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.loaderDot {
+    border-radius: 50%;
+    height: 10px;
+    width: 10px;
+    background: rgb(214, 53, 39);
+    margin: 0 3px;
+    animation: pulse 1.2s infinite ease-in-out both;
+}
+
+.loaderDot.dot1 {
+    animation-delay: 0;
+}
+
+.loaderDot.dot2 {
+    animation-delay: 0.20s;
+}
+
+.loaderDot.dot3 {
+    animation-delay: 0.40s;
+}
+
+.loaderDot.dot4 {
+    animation-delay: 0.60s;
+}
+
+@keyframes pulse {
+0%, 80%, 100% { 
+    transform: scale(0);
+    opacity: 0;
+} 40% { 
+    transform: scale(1.0);
+    opacity: 1;
+}
+}
 .mainContent {
     flex: 1 0 0;
     width: 100%;

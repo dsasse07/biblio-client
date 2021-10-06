@@ -1,13 +1,16 @@
 import Service from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import { inject as service } from '@ember/service';
 import ENV from 'biblio-client/config/environment';
 
 const BOOKS_URL_BASE = 'https://www.googleapis.com/books/v1/volumes?q=';
 
 export default class SearchService extends Service {
+  @service router;
   @tracked searchQuery = '';
   @tracked searchResults = null;
+  @tracked isLoading = false;
 
   get token() {
     const token = ENV.APP.GOOGLE_API_KEY;
@@ -34,11 +37,14 @@ export default class SearchService extends Service {
 
   _handleCleanup() {
     this.searchQuery = '';
+    this.isLoading = false;
   }
 
   @action submitSearch() {
     const query = this._getValidQuery();
-    if (!query) return;
+    if (!query | this.isLoading) return;
+    this.router.transitionTo('search-results');
+    this.isLoading = true;
 
     return fetch(`${BOOKS_URL_BASE}${query}&key=${this.token}`)
       .then((res) => res.json())

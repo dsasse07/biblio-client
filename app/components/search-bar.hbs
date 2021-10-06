@@ -1,0 +1,8 @@
+<form class="flex search" {{on 'submit' @onSubmit}}>
+  <div class="searchShell">
+    {{#if @isLoading}}
+      <SearchBar::Loader />
+    {{/if}}
+    {{yield}}
+  </div>
+</form>

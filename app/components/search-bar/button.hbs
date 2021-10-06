@@ -1,0 +1,7 @@
+<button class="searchButton" type={{@type}} disabled={{@isDisabled}}>
+  {{#if (has-block)}}
+    {{yield}}
+  {{else}}
+    <FaIcon @icon={{@icon}} />
+  {{/if}}
+</button>
