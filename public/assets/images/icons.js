@@ -1,5 +1,5 @@
 export default function () {
   return {
-    'free-solid-svg-icons': ['search'],
+    'free-solid-svg-icons': ['search', 'star'],
   };
 }

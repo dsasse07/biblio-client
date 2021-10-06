@@ -1,6 +1,12 @@
 {{page-title "SearchResults"}}
 {{#unless this.search.isLoading}}
-    <h1>Results..</h1>
+    <TallCard::Wrapper>
+        {{#each this.search.searchResults.items as |result|}}
+            <TallCard::Card
+                @book={{result.volumeInfo}}
+            />
+        {{/each}}
+    </TallCard::Wrapper>
 {{else}}
     <h1>Loading...</h1>
 {{/unless}}

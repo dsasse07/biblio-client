@@ -1,0 +1,14 @@
+<div class="ratingsWrapper">
+    {{#each this.earnedStars as |s|}}
+        <FaIcon 
+            class="earnedStar"
+            @icon="star"    
+        />
+    {{/each}}
+    {{#each this.unearnedStarts as |s|}}
+        <FaIcon 
+            class="unearnedStar"
+            @icon="star"    
+        />
+    {{/each}}
+</div>

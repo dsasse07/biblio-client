@@ -1,3 +1,21 @@
-<div class="tallCard">
-  {{yield}}
-</div>
+<article class="flex tallCard">
+  <TallCard::Header 
+    @title={{@book.title}} 
+  />
+  <TallCard::Subheader
+    @subheading={{@book.authors}}
+  />
+  <div class="flex detailsRow">
+    <TallCard::Image 
+      @image={{@book.imageLinks.smallThumbnail}}
+      @alt={{@book.title}}
+    />
+    <div class="flex detailsCol">
+      <p>{{this.publishedYear}}</p>
+      <TallCard::Rating
+        @rating={{@book.averageRating}}
+        @count={{this.ratingsCount}}
+      />
+    </div>
+  </div>
+</article>
