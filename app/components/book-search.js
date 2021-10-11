@@ -5,6 +5,7 @@ import { inject as service } from '@ember/service';
 
 export default class BookSearchComponent extends Component {
   @service search;
+  @service router;
 
   @action
   async submitSearch(e) {

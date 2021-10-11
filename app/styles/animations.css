@@ -1,0 +1,48 @@
+/* Animations */
+@keyframes pulse {
+  0%,
+  80%,
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes spotlight {
+  /* bottom right corner */
+  /* transform: translate(20%, 20%); */
+  /* top right corner */
+  /* transform: translate(20%, -20%); */
+  /* top left corner */
+  /* transform: translate(-15%, -20%); */
+  /*  bottom left corner */
+  /* transform: translate(-15%, 20%); */
+  0% {
+    /*  center */
+    transform: translate(4%, 0);
+  }
+  20% {
+    /* bottom right corner */
+    transform: translate(20%, 20%);
+  }
+  40% {
+    /*  bottom left corner */
+    transform: translate(-15%, 20%);
+  }
+  60% {
+    /* top right corner */
+    transform: translate(20%, -20%);
+  }
+  80% {
+    /* top left corner */
+    transform: translate(-15%, -20%);
+  }
+  100% {
+    /* bottom right corner */
+    transform: translate(20%, 20%);
+  }
+}

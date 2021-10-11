@@ -10,15 +10,15 @@ module('Integration | Component | tall-card/subheader', function (hooks) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(hbs`<TallCard::Subheader />`);
+    await render(hbs`<BookCard::Subheader />`);
 
     assert.dom(this.element).hasText('');
 
     // Template block usage:
     await render(hbs`
-      <TallCard::Subheader>
+      <BookCard::Subheader>
         template block text
-      </TallCard::Subheader>
+      </BookCard::Subheader>
     `);
 
     assert.dom(this.element).hasText('template block text');

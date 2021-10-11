@@ -1,0 +1,20 @@
+<article class='flex bookCard'>
+  <BookCard::Header @title={{@book.title}} />
+  <BookCard::Subheader @subheading={{@book.subtitle}} />
+  <div class='flex detailsRow'>
+    <BookCard::Image
+      @image={{@book.imageLinks.smallThumbnail}}
+      @alt={{@book.title}}
+    />
+    <div class='flex detailsCol'>
+      <p>{{@book.authors}}</p>
+      <p>{{this.publishedYear}}</p>
+      <BookCard::Rating
+        @rating={{@book.averageRating}}
+        @count={{@book.ratingsCount}}
+      />
+      <p>{{@book.pageCount}} Pages</p>
+    </div>
+  </div>
+  <BookCard::Description @description={{@book.description}} />
+</article>

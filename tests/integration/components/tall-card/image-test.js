@@ -10,15 +10,15 @@ module('Integration | Component | tall-card/image', function (hooks) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(hbs`<TallCard::Image />`);
+    await render(hbs`<BookCard::Image />`);
 
     assert.dom(this.element).hasText('');
 
     // Template block usage:
     await render(hbs`
-      <TallCard::Image>
+      <BookCard::Image>
         template block text
-      </TallCard::Image>
+      </BookCard::Image>
     `);
 
     assert.dom(this.element).hasText('template block text');

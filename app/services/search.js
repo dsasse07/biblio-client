@@ -49,12 +49,8 @@ export default class SearchService extends Service {
     return fetch(`${BOOKS_URL_BASE}${query}&key=${this.token}`)
       .then((res) => res.json())
       .then((data) => this._handleResponse(data))
-      .catch((err) => {
-        this._handleError(err);
-      })
-      .finally(() => {
-        this._handleCleanup();
-      });
+      .catch((err) => this._handleError(err))
+      .finally(() => this._handleCleanup());
   }
 }
 

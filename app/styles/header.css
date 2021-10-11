@@ -1,0 +1,57 @@
+.header {
+  position: relative;
+  flex-direction: column;
+  background-image: url('/assets/images/library.jpg');
+  background-size: contain;
+  height: 500px;
+  color: var(--white-bg-color);
+  overflow: hidden;
+}
+
+.header .searchOverlay {
+  position: absolute;
+  width: 300vw;
+  height: 200%;
+  background-color: rgba(27, 27, 27, 0.747);
+  /* clip-path: circle(50% at 50% 50%); */
+  -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="-120 0 100 100" preserveAspectRatio="xMinYMin"><circle cx="50%" cy="50%" r="15" /></svg>')
+      0/100% 100%,
+    linear-gradient(#fff, #fff);
+  -webkit-mask-composite: destination-out;
+  mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="-120 0 100 100" preserveAspectRatio="xMinYMin"><circle cx="50%" cy="50%" r="15" /></svg>')
+      0/100% 100%,
+    linear-gradient(#fff, #fff);
+  mask-composite: exclude;
+  transform: translate(-12%, -8%);
+  animation: spotlight 8s infinite ease-in-out both;
+}
+
+.mainNav {
+  position: sticky;
+  background: var(--white-bg-color);
+  padding: 10px 0;
+  height: 3rem;
+  width: 100%;
+}
+
+.logoImage {
+  width: 2.5rem;
+}
+
+.navLink {
+  width: 100%;
+  max-width: 45px;
+  padding: 5px;
+  color: var(--dark-font-color);
+  font-size: 1.5rem;
+}
+
+.headerText {
+  flex: 1 0 0;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 9rem;
+  text-shadow: 3px 3px 2px var(--loader-color);
+}

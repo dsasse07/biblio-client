@@ -10,15 +10,15 @@ module('Integration | Component | tall-card/header', function (hooks) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(hbs`<TallCard::Header />`);
+    await render(hbs`<BookCard::Header />`);
 
     assert.dom(this.element).hasText('');
 
     // Template block usage:
     await render(hbs`
-      <TallCard::Header>
+      <BookCard::Header>
         template block text
-      </TallCard::Header>
+      </BookCard::Header>
     `);
 
     assert.dom(this.element).hasText('template block text');
