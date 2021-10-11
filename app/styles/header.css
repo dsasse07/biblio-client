@@ -54,4 +54,11 @@
   align-items: center;
   font-size: 9rem;
   text-shadow: 3px 3px 2px var(--loader-color);
+  padding: 0 40px;
+  background: radial-gradient(
+    circle,
+    rgba(10, 10, 10, 1) 5%,
+    rgba(11, 11, 11, 0.3) 20%,
+    rgba(11, 11, 11, 0.1) 60%
+  );
 }
