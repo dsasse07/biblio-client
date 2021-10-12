@@ -1,0 +1,7 @@
+{{#if @isLoading}}
+  <FaIcon class='statefulIcon loading' @icon='spinner' />
+{{else if @isComplete}}
+  <FaIcon class='statefulIcon complete' @icon='check' />
+{{else}}
+  <FaIcon class='statefulIcon' @icon={{@icon}} />
+{{/if}}

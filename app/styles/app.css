@@ -5,14 +5,40 @@
 @import 'header.css';
 @import 'search.css';
 @import 'bookCard.css';
+@import 'stateful-btn.css';
 
 body {
-  background: rgb(117, 34, 32);
+  background: var(--yellow-bg-color);
+  font-family: 'Cormorant Garamond', serif;
 }
 
 .mainContent {
-  flex: 1 0 0;
+  position: relative;
   width: 100%;
   max-width: 1200px;
   margin: 40px auto;
+  flex-direction: column;
+}
+
+.loadMore {
+  position: relative;
+  background: var(--loader-color);
+  border: 2px solid var(--loader-color);
+  color: var(--white-bg-color);
+  margin: 100px;
+}
+
+.loadMore:hover,
+.loadMore:focus {
+  background: var(--white-bg-color);
+  color: var(--loader-color);
+}
+
+.loadMore .isLoading {
+  color: transparent;
+  background: var(--white-bg-color);
+}
+
+.loadMore .searchLoader {
+  border-radius: unset;
 }

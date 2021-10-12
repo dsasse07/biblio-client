@@ -1,0 +1,21 @@
+.stateful {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  padding: 10px 15px;
+}
+
+.statefulIcon {
+  color: var(--loader-color);
+}
+
+.statefulIcon.complete {
+  color: var(--success-color);
+}
+
+.statefulIcon.loading {
+  animation: spin 1.2s infinite linear;
+}

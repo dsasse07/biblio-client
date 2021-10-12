@@ -1,0 +1,13 @@
+{{#if @isLoading}}
+  <p class='statefulLabel loading'>
+    {{this.loadingText}}
+  </p>
+{{else if @isComplete}}
+  <p class='statefulLabel complete'>
+    {{this.completeText}}
+  </p>
+{{else}}
+  <p class='statefulLabel'>
+    {{@labelText}}
+  </p>
+{{/if}}

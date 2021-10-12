@@ -1,5 +1,6 @@
 :root {
   --white-bg-color: rgb(248, 248, 248);
+  --yellow-bg-color: rgb(241, 210, 178);
   --light-yellow: rgb(254, 212, 164);
   --light-gray: rgb(230, 230, 230);
   --loader-color: rgb(214, 53, 39);
@@ -7,6 +8,7 @@
   --subtext-color: rgb(121, 121, 121);
   --inactive-color: rgb(184, 184, 184);
   --gold-star-color: rgb(231, 208, 2);
+  --success-color: rgb(20, 172, 0);
   --search-radius: 20px;
   --soft-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07),
     0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07),

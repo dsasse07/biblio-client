@@ -1,6 +1,7 @@
 .search {
   height: 100px;
   padding-bottom: 60px;
+  width: 100%;
 }
 .searchShell {
   position: relative;
@@ -10,8 +11,8 @@
   align-items: center;
   padding: 5px;
   width: 40%;
-  min-width: 300px;
-  height: 35%;
+  min-width: 350px;
+  height: 42px;
   border-radius: var(--search-radius);
 }
 
@@ -22,6 +23,8 @@
   cursor: pointer;
   padding: 12px;
   border-radius: 50%;
+  font-size: 18px;
+  color: var(--subtext-color);
 }
 .searchButton:focus,
 .searchButton:hover,
@@ -35,10 +38,14 @@
   border: none;
   outline: none;
   flex: 1 0 0;
+  font-size: 18px;
+  text-align: center;
 }
 
 .searchLoader {
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   overflow: hidden;

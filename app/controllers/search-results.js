@@ -1,8 +1,15 @@
 import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
+import { action } from '@ember/object';
 
 export default class SearchResultsController extends Controller {
   @service search;
+
+  @action
+  loadMore() {
+    console.log('Loading More!');
+    this.search.loadMore();
+  }
 }
 
 /* 

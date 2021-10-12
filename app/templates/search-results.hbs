@@ -1,11 +1,26 @@
 {{page-title 'SearchResults'}}
 
-{{#unless this.search.isLoading}}
-  <BookCard::Wrapper>
-    {{#each this.search.searchResults.items as |result|}}
-      <BookCard::Card @book={{result.volumeInfo}} />
-    {{/each}}
-  </BookCard::Wrapper>
-{{else}}
-  <h1>Loading...</h1>
-{{/unless}}
+{{!-- {{#if this.search.isLoading}}
+  <SearchBar::Loader class='largeLoader' />
+{{/if}} --}}
+
+<BookCard::Wrapper>
+  {{#each this.search.searchResults.items as |result|}}
+    <BookCard::Card @book={{result.volumeInfo}} />
+  {{/each}}
+</BookCard::Wrapper>
+
+{{#if this.search.searchResults}}
+  <button
+    type='button'
+    class='btn loadMore {{if this.search.isLoading 'isLoading'}} '
+    disabled={{this.search.isLoading}}
+    {{on 'click' this.loadMore}}
+  >
+    {{#if this.search.isLoading}}
+      <SearchBar::Loader />
+      {{!-- {{else}} --}}
+    {{/if}}
+    Load More
+  </button>
+{{/if}}

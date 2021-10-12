@@ -11,6 +11,7 @@ export default class SearchService extends Service {
   @tracked searchQuery = '';
   @tracked searchResults = fakeData;
   @tracked isLoading = false;
+  _prevSearch = null;
 
   get token() {
     const token = ENV.APP.GOOGLE_API_KEY;
@@ -27,30 +28,53 @@ export default class SearchService extends Service {
   }
 
   _handleResponse(searchResults) {
-    this.searchResults = searchResults;
-    console.log(searchResults);
+    if (this.searchResults) {
+      this.searchResults = {
+        ...this.searchResults,
+        items: this.searchResults.items.concat(searchResults.items),
+      };
+    } else {
+      this.searchResults = searchResults;
+    }
   }
 
   _handleError(err) {
     console.log('err:', err);
   }
 
-  _handleCleanup() {
+  _handleCleanup(query) {
     this.searchQuery = '';
+    this._prevSearch = query;
     this.isLoading = false;
   }
 
   @action submitSearch() {
     const query = this._getValidQuery();
-    if (!query | this.isLoading) return;
+    if (!query || this.isLoading) return;
     this.router.transitionTo('search-results');
+    this.searchResults = null;
+    this._prevSearch = null;
     this.isLoading = true;
 
-    return fetch(`${BOOKS_URL_BASE}${query}&key=${this.token}`)
+    fetch(`${BOOKS_URL_BASE}${query}&key=${this.token}`)
       .then((res) => res.json())
       .then((data) => this._handleResponse(data))
       .catch((err) => this._handleError(err))
-      .finally(() => this._handleCleanup());
+      .finally(() => this._handleCleanup(query));
+  }
+
+  @action loadMore() {
+    if (!this._prevSearch || this.isLoading) return;
+    this.isLoading = true;
+
+    const itemCount = this.searchResults.items.length;
+    fetch(
+      `${BOOKS_URL_BASE}${this._prevSearch}&startIndex=${itemCount}&key=${this.token}`
+    )
+      .then((res) => res.json())
+      .then((data) => this._handleResponse(data))
+      .catch((err) => this._handleError(err))
+      .finally(() => this._handleCleanup(this._prevSearch));
   }
 }
 

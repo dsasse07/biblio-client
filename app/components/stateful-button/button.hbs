@@ -1,0 +1,29 @@
+<button
+  class='btn stateful'
+  type={{@type}}
+  disabled={{@isDisabled}}
+  ...attributes
+>
+  {{#if @icon}}
+    <StatefulButton::Icon
+      @isLoading={{@isLoading}}
+      @isComplete={{@isComplete}}
+      @icon={{@icon}}
+    />
+  {{/if}}
+
+  {{#if @label}}
+    <StatefulButton::Label
+      @isLoading={{@isLoading}}
+      @isComplete={{@isComplete}}
+      @labelText={{@label}}
+      @loadingText={{@loadingText}}
+      @completeText={{@completeText}}
+    />
+  {{/if}}
+
+  {{#if (has-block)}}
+    {{yield}}
+  {{/if}}
+
+</button>

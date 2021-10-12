@@ -1,20 +1,24 @@
 <article class='flex bookCard'>
-  <BookCard::Header @title={{@book.title}} />
-  <BookCard::Subheader @subheading={{@book.subtitle}} />
+  <BookCard::Header @title={{@book.title}} @subheading={{@book.subtitle}} />
+  <StatefulButton::Button
+    class='saveButton'
+    @icon='plus'
+    @isLoading={{this.isSaving}}
+    @isComplete={{this.isComplete}}
+    @action={{this.addBook}}
+  />
   <div class='flex detailsRow'>
     <BookCard::Image
       @image={{@book.imageLinks.smallThumbnail}}
       @alt={{@book.title}}
     />
-    <div class='flex detailsCol'>
-      <p>{{@book.authors}}</p>
-      <p>{{this.publishedYear}}</p>
-      <BookCard::Rating
-        @rating={{@book.averageRating}}
-        @count={{@book.ratingsCount}}
-      />
-      <p>{{@book.pageCount}} Pages</p>
-    </div>
+    <BookCard::Details
+      @authors={{@book.authors}}
+      @year={{@book.publishedYear}}
+      @rating={{@book.averageRating}}
+      @ratingCount={{@book.ratingsCount}}
+      @pageCount={{@book.pageCount}}
+    />
   </div>
   <BookCard::Description @description={{@book.description}} />
 </article>
