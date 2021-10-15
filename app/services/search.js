@@ -9,7 +9,7 @@ const BOOKS_URL_BASE = 'https://www.googleapis.com/books/v1/volumes?q=';
 export default class SearchService extends Service {
   @service router;
   @tracked searchQuery = '';
-  @tracked searchResults = fakeData;
+  @tracked searchResults = null;
   @tracked isLoading = false;
   _prevSearch = null;
 
