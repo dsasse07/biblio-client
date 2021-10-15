@@ -1,0 +1,14 @@
+{{page-title 'Login'}}
+Hello
+<form class='loginForm' {{on 'submit' this.login}}>
+  <Input @type='type' placeholder='First Name' @value={{this.firstName}} />
+  <StatefulButton::Button
+    @type='submit'
+    @label="Let's Go!"
+    {{!-- @isDisabled={{this.isLoading}} --}}
+    {{!-- @isLoading={{this.isLoading}} --}}
+    @loadingText='Sending...'
+    {{!-- @isComplete={{this.isComplete}} --}}
+    @completeText='Success!'
+  />
+</form>
