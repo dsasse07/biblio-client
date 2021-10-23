@@ -21,6 +21,7 @@ module.exports = function (environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
       GOOGLE_API_KEY: process.env.GOOGLE_API_KEY,
+      BACKEND_URL: process.env.PROD_BACKEND_URL,
     },
   };
 
@@ -30,6 +31,7 @@ module.exports = function (environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.APP.BACKEND_URL = process.env.DEV_BACKEND_URL;
   }
 
   if (environment === 'test') {

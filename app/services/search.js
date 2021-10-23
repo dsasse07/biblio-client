@@ -13,10 +13,10 @@ export default class SearchService extends Service {
   @tracked isLoading = false;
   _prevSearch = null;
 
-  get token() {
-    const token = ENV.APP.GOOGLE_API_KEY;
-    if (typeof token === 'string') {
-      return encodeURIComponent(token);
+  get apiKey() {
+    const apiKey = ENV.APP.GOOGLE_API_KEY;
+    if (typeof apiKey === 'string') {
+      return encodeURIComponent(apiKey);
     }
     return null;
   }
@@ -56,7 +56,7 @@ export default class SearchService extends Service {
     this._prevSearch = null;
     this.isLoading = true;
 
-    fetch(`${BOOKS_URL_BASE}${query}&key=${this.token}`)
+    fetch(`${BOOKS_URL_BASE}${query}&key=${this.apiKey}`)
       .then((res) => res.json())
       .then((data) => this._handleResponse(data))
       .catch((err) => this._handleError(err))
@@ -69,7 +69,7 @@ export default class SearchService extends Service {
 
     const itemCount = this.searchResults.items.length;
     fetch(
-      `${BOOKS_URL_BASE}${this._prevSearch}&startIndex=${itemCount}&key=${this.token}`
+      `${BOOKS_URL_BASE}${this._prevSearch}&startIndex=${itemCount}&key=${this.apiKey}`
     )
       .then((res) => res.json())
       .then((data) => this._handleResponse(data))
