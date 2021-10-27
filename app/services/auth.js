@@ -41,9 +41,11 @@ export default class AuthService extends Service {
   }
 
   async _setCurrentUser(user) {
-    this._currentUser = await this.store.createRecord('user', user);
+    // debugger;
+    this._currentUser = user;
+    this._currentUser = await this.store.findRecord('user', user.id);
     localStorage.setItem('userToken', user.id);
-    console.log(user);
+    console.log(this._currentUser);
   }
 
   logout() {
